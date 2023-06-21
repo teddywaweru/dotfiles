@@ -317,7 +317,7 @@ exec --no-startup-id dunst
 exec --no-startup-id xfce4-power-manager &
 #exec --no-startup-id pulseaudio &
 # Picom
-# exec --no-startup-id picom &
+exec --no-startup-id picom &
 
 # URxvt Daemon
 exec --no-startup-id urxvtd -q -f -o

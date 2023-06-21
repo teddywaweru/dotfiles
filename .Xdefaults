@@ -10,8 +10,7 @@ URxvt*background: Blue
 #URxvt.font: xft:monaco:size=10
 URxvt*font: xft:CodeNewRoman Nerd Font:size=12:minspace=True:pixelsize=16,\
 xft:Source Code Pro:style=Regular:size=10
-URxvt*boldFont: xft:CodeNewRoman Nerd Font:bold:size=12:minspace=False, xft:DejaVu Sans:pixelsize=8, xft:Source Code Pro:style=Regular:size=10
-
+URxvt*boldFont: xft:CodeNewRoman Nerd Font:bold:size=12:minspace=False, xft:DejaVu Sans:pixelsize=8, xft:Source Code Pro:style=italic:size=10
 URxvt*italicFont: xft:CodeNewRoman Nerd Font:italic:size=12:minspace=False, xft:DejaVu Sans:pixelsize=18
 URxvt*letterSpace: 0
 
@@ -41,6 +40,6 @@ URxvt.keysym.Control-Right:  \033[1;5C
 
 # Enabling Perl Scripts
 URxvt.perl-lib: /home/njuwate/.config/urxvt/urxvt-vim-scrollback
-URxvt.perl-ext-common: digital-clock,selection-to-clipboard,keyboard-select,vim-scrollback
+URxvt.perl-ext-common: digital-clock,selection-to-clipboard,keyboard-select,vim-scrollback,resize-font
 #URxvt.keysym.C-n: perl:keyboard-select:activate
 urxvt.vim-scrollback: C-n
