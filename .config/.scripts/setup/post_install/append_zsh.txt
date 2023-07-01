@@ -1,0 +1,31 @@
+###########################################################################
+# Personal Customization
+###########################################################################
+# Remove duplicate History entries
+export HISTCONTROL=$HISTCONTROL:ignorespace:ignoredups
+
+# Add aliases
+export EDITOR="/usr/bin/nvim"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias v="nvim ."
+alias f="vifm ."
+alias t="tmux"
+alias c="clear"
+alias  dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Not sure yet...
+set -o vi
+
+# Disable Beep
+unsetopt beep
+
+# Disable History Verification Step
+setopt no_histverify
+
+# Disable Histories being shared between terminal windows
+unsetopt share_history
+
+if [[ -z $DISPLAY ]]; then
+	startx
+fi
