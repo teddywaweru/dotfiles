@@ -153,9 +153,8 @@ bindsym $mod+semicolon split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+p layout toggle
+bindsym $mod+$mod_2+p layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -167,7 +166,13 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
 
 ###################################################################################
 # Workspaces
@@ -223,6 +228,8 @@ bindsym $mod+Ctrl+0 move container to workspace $ws10
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+l workspace next
@@ -237,6 +244,7 @@ bindsym $mod+Ctrl+h workspace prev
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+q exec --no-startup-id i3exit shutdown, mode "default"
 bindsym $mod+c mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
@@ -306,6 +314,8 @@ bar {
         urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
+# hide/unhide i3status bar
+bindsym $mod+$mod_2+m bar mode toggle
 #####################################################################################
 #User Defined Custom exec funcs
 exec --no-startup-id xset r rate 200 60
