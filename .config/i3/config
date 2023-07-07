@@ -93,7 +93,8 @@ tiling_drag modifier titlebar
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvtc
+# bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec Alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -330,7 +331,7 @@ exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id picom &
 
 # URxvt Daemon
-exec --no-startup-id urxvtd -q -f -o
+# exec --no-startup-id urxvtd -q -f -o
 
 
 
