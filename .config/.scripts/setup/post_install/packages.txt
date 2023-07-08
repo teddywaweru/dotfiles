@@ -1,10 +1,10 @@
+git
 sudo
 xorg
 networkmanager
 neovim
 i3status-rust
 zsh
-starship
 i3-wm
 xdotool
 vifm
