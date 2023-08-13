@@ -24,12 +24,17 @@ icons = "awesome4"
 
 [[block]]
 block = "focused_window"
-driver = "auto"
+# interval = 1
 [block.format]
-full = "$title.str(max_w:65)|"
-short = "$title.str(max_w:10)|"
+full = "  $title.str(max_w:65)  "
+short = " $title.str(max_w:10) "
 [block.theme_overrides]
 idle_bg = "#123456"
+
+
+# [[block]]
+# block = "focused_window"
+# format = " $title.str(0,21) | Missing "
 
 [[block]]
 block = "cpu"
@@ -42,7 +47,7 @@ idle_fg = "#12f456"
 [[block]]
 block = "cpu"
 format = " 󰍛 $utilization.eng(w:4) "
-#format_alt = "󰍛 $utilization $barchart $frequency"
+format_alt = "󰍛 $utilization $barchart $frequency"
 interval = 3
 [block.theme_overrides]
 separator = " "
@@ -62,7 +67,7 @@ format = "  $swap_used_percents.eng(w:2) "
 [[block]]
 block = "disk_space"
 path = "/"
-info_type = "available"
+info_type = "used"
 alert_unit = "GB"
 interval = 20
 warning = 20.0

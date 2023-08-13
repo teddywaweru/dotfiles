@@ -19,4 +19,6 @@ ripgrep
 fzf
 lazygit
 picom
+xinit
+dust
 

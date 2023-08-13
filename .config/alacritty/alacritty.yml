@@ -70,7 +70,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.7
+  opacity: 0.85
 
   # Startup Mode (changes require restart)
   #
@@ -146,7 +146,7 @@ font:
     # family: monospace
     style: Bold Italic
 
-  size: 8
+  size: 12
 
   # Normal (roman) font face
   #normal:
@@ -795,13 +795,14 @@ font:
 # in the order they were defined in.
 key_bindings:
   - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Semicolon, mods: Control, chars: "\x1b[13;p" }
     #
   # Adding Key bndings for Navgation & utilizing Zellij
-  - { key: N, mods: Super, chars: "\x1bn" }
-  - { key: H, mods: Super, chars: "\x1bh" }
-  - { key: J, mods: Super, chars: "\x1bj" }
-  - { key: K, mods: Super, chars: "\x1bk" }
-  - { key: L, mods: Super, chars: "\x1bl" }
+  # - { key: N, mods: Super, chars: "\x1bn" }
+  # - { key: H, mods: Super, chars: "\x1bh" }
+  # - { key: J, mods: Super, chars: "\x1bj" }
+  # - { key: K, mods: Super, chars: "\x1bk" }
+  # - { key: L, mods: Super, chars: "\x1bl" }
   # - { key: J, mods: Super, chars: "\x1bj"}
   # - { key: J, mods: Super, chars: "\x1bj"}
   #
