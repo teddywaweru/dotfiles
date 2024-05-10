@@ -1,0 +1,145 @@
+
+
+* {
+  /* Default background color */
+  background-color: transparent;
+  text-color:       white;
+}
+
+
+window {
+  //padding: 1em;
+
+  border-color: purple;
+  border:       0px;
+  border-radius: 10px;
+
+  width:  1600px; 
+  height: 900px;
+
+  //background-color: darkgreen;
+  //background-color: darkblue;
+
+  //background-image: url("iggy.jpg", width);
+  background-image: url("/home/teddyw/Pictures/Desktop/wallpaperflare.com_wallpaper (6).png", both);
+}
+
+mainbox {
+  spacing: 0px;
+  children: [inputbar,wrapper-mode-switcher,listview];
+}
+
+element {
+  background: transparent;
+  children: [ element-icon, element-text ];
+}
+element,element-text,element-icon, button {
+    cursor: pointer;
+}
+
+inputbar {
+  margin: 0px 0px 0.5em 0em;
+  spacing: 0.4em;
+  children: [ button-iggy1, entry,overlay,case-indicator, button-iggy2];
+}
+
+button-iggy1, button-iggy2 {
+  expand: false;
+  content: "🐢";
+  action: "kb-primary-paste";
+  horizontal-align: 0.5;
+}
+button-iggy2 {
+  action: "kb-screenshot";
+}
+
+listview, inputbar, message {
+  padding: 0.5em;  
+  //border-color: purple;
+  border:        5px;
+  border-radius: 10px;
+  background-color: black/70%;
+
+  columns: 9;
+  lines:   6;
+}
+listview {
+  border:       0px 5px 5px 5px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+
+element {
+    border:  0;
+    padding:      10px;
+    font:         "Mono 8";
+    orientation: vertical;
+}
+element-icon {
+  size: 5em;
+}
+
+element  selected {
+  border-color: purple;
+  border:       1px;
+  border-radius: 20px;
+  background-color: purple/20%;
+}
+
+element-text, element-icon {
+  font:             inherit; 
+  horizontal-align: 0.5;
+}
+
+wrapper-mode-switcher {
+    orientation: horizontal;
+
+    expand:     false;
+    spacing:    0;
+    children: [ icon-ms-ic1, mode-switcher, icon-ms-ic2 ];
+}
+icon-ms-ic1 {
+    filename: "go-previous";
+    action: "kb-mode-previous";
+}
+icon-ms-ic2 {
+    filename: "go-next";
+    action: "kb-mode-next";
+}
+icon-ms-ic1,icon-ms-ic2 {
+    size: 16;
+    vertical-align: 0.8;
+    expand:        false;
+    border:       0px 0px 5px ;
+    border-color: purple;
+}
+
+mode-switcher {
+    border:  0px;
+    spacing: 0px;
+    expand: true;
+}
+button {
+    text-color: white;
+    border:       0px 0px 2px ;
+    border-color: purple;
+    border-radius:    10px 10px 0 0;
+    background-image: linear-gradient(to bottom, purple/50%, black/70%);
+    horizontal-align: 0.5;
+}
+button selected.normal {
+    text-color: white;
+    margin: 0px;
+    padding: 0px;
+
+    border:       1px 1px 0px ;
+    //border-color: purple;
+    border-radius:    10px 10px 0 0;
+    background-image: linear-gradient(to bottom, purple, black/70%);
+}
+
+entry {
+    placeholder: "njuwate be Searching for sum'n?";
+    placeholder-color: darkgrey/30%;
+  }
+

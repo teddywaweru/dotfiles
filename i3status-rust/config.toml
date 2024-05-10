@@ -1,0 +1,168 @@
+icons_format = "{icon}"
+
+[theme]
+# theme = "nord-dark"
+theme = "slick"
+# theme = "space-villain"
+# theme = "bad-wolf"
+# theme = "modern"
+[theme.overrides]
+# idle_bg = "#22222270"
+idle_bg = "#00000000"
+# idle_bg = "#123456"
+idle_fg = "#abcdef"
+# separator = "<span font-family='Terminus' size='16300'></span>"
+separator = "<span font-family='Terminus' size='18000'>|</span>"
+separator_bg =  "#00000000"
+separator_fg =  "#123456"
+# 
+[icons]
+icons = "awesome4"
+[icons.overrides]
+# bat = ["|E|", "|_|", "|=|", "|F|"]
+# bat_charging = "|^| "
+
+[[block]]
+block = "focused_window"
+# interval = 1
+[block.format]
+full = "  $title.str(max_w:65)  "
+short = " $title.str(max_w:10) "
+[block.theme_overrides]
+idle_bg = "#123456"
+
+
+# [[block]]
+# block = "focused_window"
+# format = " $title.str(0,21) | Missing "
+
+[[block]]
+block = "cpu"
+format = "$barchart"
+format_alt = "󰍛 $utilization $barchart $frequency"
+interval = 1
+[block.theme_overrides]
+idle_fg = "#12f456"
+
+[[block]]
+block = "cpu"
+format = " 󰍛 $utilization.eng(w:4) "
+format_alt = "󰍛 $utilization $barchart $frequency"
+interval = 3
+[block.theme_overrides]
+separator = " "
+
+[[block]]
+block = "memory"
+format = " $icon  $mem_used_percents.eng(w:2) "
+[block.theme_overrides]
+separator = " "
+
+[[block]]
+block = "memory"
+# format = "$icon_swap  $swap_used_percents.eng(w:2) "
+format = "  $swap_used_percents.eng(w:2) "
+[block.theme_overrides]
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "used"
+alert_unit = "GB"
+# interval = 20
+warning = 71.0
+alert = 90.0
+format = " $icon  $percentage.eng(w:2)($used) "
+[block.theme_overrides]
+
+[[block]]
+block = "net"
+# format = "$icon  {$signal_strength | Wired :  $ip }"
+format = " $icon  {$signal_strength |{Wired } } $ip "
+interval = 5
+missing_format = "no lan"
+# format = "$icon {$signal_strength $ssid|Wired $frequency|Wired connection} via $device"
+
+# Speed Testing Active Connection
+# [[block]]
+# block = "speedtest"
+# interval = 10
+# format = " ^icon_ping $ping "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+[block.theme_overrides]
+
+# Package Manager
+# [[block]]
+# block = "custom"
+# command = "echo " # assumes fontawesome icons
+# interval = "once"
+# [[block.click]]
+# button = "left"
+# cmd = "pamac-manager"
+
+# Brightness Control
+# Only Touchpad use here
+# [[block]]
+# block = "backlight"
+# device = "intel_backlight"
+# missing_format = ""
+# format = " { $brightness.eng(w:2) }"
+
+[[block]]
+block = "battery"
+format = " $icon   $percentage {$time} "
+# charging_format = "$icon   $percentage {$time} "
+full_format = " ☻󰁹 "
+interval = 1
+info = 75
+good = 60
+warning = 45
+critical = 25
+[[block.click]]
+button = "right"
+cmd = "xfce4-power-manager -c"
+
+
+# [[block]]
+# block = "pomodoro"
+# notify_cmd = "notify-send '{msg}'"
+# blocking_cmd = false
+
+
+[[block]]
+block = "time"
+interval = 1
+format = "  $timestamp.datetime(f:'%a %d-%m-%y %X') "
+[block.theme_overrides]
+
+
+# [[block]]
+# block = "custom"
+# command = "echo \uf011" # assumes fontawesome icons
+# interval = "once"
+# [[block.click]]
+# button = "left"
+# cmd = "systemctl `echo -e 'suspend\npoweroff\nreboot' | dmenu`"
+
+
+#Scrollable Menu for Selection
+# A lot of Touchpad use here
+# [[block]]
+# block = "menu"
+# text = "\uf011"
+# [[block.items]]
+# display = " -&gt;   Sleep   &lt;-"
+# cmd = "systemctl suspend"
+# [[block.items]]
+# display = " -&gt; Power Off &lt;-"
+# cmd = "poweroff"
+# confirm_msg = "Are you sure you want to power off?"
+# [[block.items]]
+# display = " -&gt;  Reboot   &lt;-"
+# cmd = "reboot"
+# confirm_msg = "Are you sure you want to reboot?"
