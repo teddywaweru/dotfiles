@@ -1,0 +1,11 @@
+alacritty
+git
+networkmanager
+sudo
+xorg
+xinit
+i3-wm
+i3status-rust
+zsh
+htop
+which

@@ -5,9 +5,10 @@
 # Install Customized Package List
 ./install_packages.sh
 
-# Get .config files and impl
-# git clone https://github.com/teddywaweru/dotfiles.git
+# Set zsh as default shell
+sudo chsh -s $(which zsh)
+
 
 # AOB
 # mouse to move to center of window when swapping in i3
-./move_mouse.sh
+../move_mouse.sh
