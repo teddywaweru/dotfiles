@@ -8,6 +8,8 @@
 # Set zsh as default shell
 sudo chsh -s $(which zsh)
 
+# Create symlink for .zshrc
+ln -s ~/.config/zsh/.zshrc ~
 
 # AOB
 # mouse to move to center of window when swapping in i3
