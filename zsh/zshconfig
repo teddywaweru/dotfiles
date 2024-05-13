@@ -65,6 +65,20 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
 bindkey '^[[B' history-substring-search-down
 
+# Aliases
+export EDITOR="usr/bin/nvim"
+alias v='nvim'
+alias cls="clear"
+alias z='zellij'
+alias t='tmux'
+alias c='clear'
+alias vf="vifm"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.config/.dotfiles --work-tree=$HOME/.config"
+alias la="ls -alh"
+
+export LS_OPTIONS='--color=auto'
+eval "$(dircolors -b)"
+alias ls='ls $LS_OPTIONS'
 
 
 
