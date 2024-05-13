@@ -11,8 +11,16 @@ pcmanfm
 pulseaudio
 ripgrep
 rofi
+starship
 tmux
+unzip
 vifm
 vivaldi
 xclip
 xdotool
+xfce4-power-manager
+zsh-autosuggestions
+zsh-history-substring-search
+zsh-syntax-highlighting
+zsh-history-substring-search
+zip
