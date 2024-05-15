@@ -17,11 +17,8 @@ window {
   width:  1600px; 
   height: 900px;
 
-  //background-color: darkgreen;
-  //background-color: darkblue;
 
-  //background-image: url("iggy.jpg", width);
-  background-image: url("/home/teddyw/Pictures/Desktop/wallpaperflare.com_wallpaper (6).png", both);
+  background-image: url("/home/teddyw/.config/rofi/rofi_bg.png", both);
 }
 
 mainbox {
