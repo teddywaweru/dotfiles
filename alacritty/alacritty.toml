@@ -1,4 +1,4 @@
-import = ["/home/teddyw/.config/alacritty/themes/themes/monokai_charcoal.toml"]
+import = ["/home/njuwate/.config/alacritty/themes/monokai_charcoal.toml"]
 
 [env]
 TERM = "alacritty"

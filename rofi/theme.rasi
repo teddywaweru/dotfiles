@@ -18,7 +18,7 @@ window {
   height: 900px;
 
 
-  background-image: url("/home/teddyw/.config/rofi/rofi_bg.png", both);
+  background-image: url("/home/njuwate/.config/rofi/rofi_bg.png", both);
 }
 
 mainbox {
