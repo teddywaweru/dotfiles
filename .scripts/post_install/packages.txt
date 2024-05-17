@@ -1,7 +1,10 @@
+alsa-utils
+dhcpcd
 dunst
 dust
 fzf
 htop
+iwd
 lazygit
 libinput
 neovim
@@ -11,6 +14,7 @@ pcmanfm
 pulseaudio
 ripgrep
 rofi
+sof-firmware
 starship
 tmux
 unzip
