@@ -108,15 +108,19 @@ return {
 		end
 	},
 	{
-		"phaazon/hop.nvim",
+		"smoka7/hop.nvim",
 		lazy = true,
 		event = "VeryLazy",
-		branch = 'v2', -- optional but strongly recommended
+		-- branch = 'v2', -- optional but strongly recommended
 		cmd = { "HopChar1", "HopLine" },
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup { keys = 'etovxqpdygfblzhckisuran' }
-		end
+			require("hop").setup {
+				keys = 'etovxqpdygfblzhckisuran',
+				case_insensitive = false }
+		end,
+		opts = {
+		}
 	},
 	{
 		"kylechui/nvim-surround",
@@ -259,6 +263,7 @@ return {
 			require("lspconfig").clangd.setup({
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "mq5" }
 			})
+			require("lspconfig").tsserver.setup({})
 
 			local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 			for type, icon in pairs(signs) do
@@ -268,7 +273,7 @@ return {
 			local config = {
 				-- Enable virtual text
 				virtual_text = {
-				prefix = '󱓇 ', -- Could be '●', '▎', 'x'
+					prefix = '󱓇 ', -- Could be '●', '▎', 'x'
 				},
 
 				-- show signs
