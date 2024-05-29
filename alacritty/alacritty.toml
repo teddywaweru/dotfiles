@@ -4,7 +4,7 @@ import = ["/home/njuwate/.config/alacritty/themes/monokai_charcoal.toml"]
 TERM = "alacritty"
 
 [font]
-size = 12
+size = 8
 
 [font.bold]
 family = "Code New Roman Nerd Font"

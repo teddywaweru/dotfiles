@@ -1,7 +1,6 @@
 alacritty
 gcc
 git
-networkmanager
 sudo
 xorg
 xinit
