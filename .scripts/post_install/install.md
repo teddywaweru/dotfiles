@@ -1,8 +1,8 @@
 # TODO
 [] - Install a font
-[] - Fix time values
+[x] - Fix time values
 [] - Configure a Blurlock system
-[] - Install autocpfreq
+[] - Check out autocpfreq, thermald, and compare power-profile-tools
 [] - Install powertop
 [] - Install acpid
 [] - Check on conky
@@ -21,3 +21,13 @@
 [] - Add Images for backgrounds ie. Rofi, desktops...
 [x] - Get tmux working
 [] - Install Theme
+[] - Style configuration for GRUB
+[] - Add password security for GRUB
+[] - Configuration for agetty for auto login profile
+[] - Fix borked keyboard at tty start
+
+[] - Installation steps highlighted [here](https://www.reddit.com/r/archlinux/comments/rz6294/arch_linux_laptop_optimization_guide_for/)
+    [] - adding the intel_agp module properly
+
+[] - Configure swap partition properly
+[] - Systemd configuration
