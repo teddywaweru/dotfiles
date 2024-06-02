@@ -8,6 +8,7 @@ fprintd
 fzf
 htop
 i3lock
+intel-media-driver
 iwd
 lazygit
 libinput
@@ -20,6 +21,7 @@ pulseaudio-bluetooth
 ripgrep
 rofi
 sof-firmware
+s-tui
 tmux
 unzip
 vifm
