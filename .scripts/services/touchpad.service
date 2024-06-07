@@ -1,0 +1,12 @@
+[Unit]
+Description= Modify touchpad Configuration
+DefaultDependencies=no
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh %h/.config/.scripts/touchpad.sh
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
