@@ -31,3 +31,7 @@
 
 [] - Configure swap partition properly
 [] - Systemd configuration
+[] - Include multilib to pacman library options
+[] - npm install vscode-langservers-extracted,
+[] - How to incorporate AUR packages?
+[] - Setting up localectl keyboards
