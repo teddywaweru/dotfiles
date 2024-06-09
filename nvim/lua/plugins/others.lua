@@ -2,6 +2,8 @@ return {
 	--------Functional-------
 	{
 		"vifm/vifm.vim",
+		lazy = true,
+		event = "VeryLazy",
 	},
 	{
 		'christoomey/vim-tmux-navigator',
@@ -154,7 +156,9 @@ return {
 
 	},
 	{
-		"mbbill/undotree"
+		"mbbill/undotree",
+		lazy = true,
+		event = "VeryLazy",
 	},
 	{
 		'ThePrimeagen/harpoon',
@@ -207,6 +211,8 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
+		lazy = true,
+		event = "VeryLazy",
 		dependencies = { "nvim/tree/nvim-web-devicons" },
 		opts = {
 			mode = "workspace_diagnostics"
@@ -248,6 +254,10 @@ return {
 		lazy = true,
 		event = "VeryLazy",
 		config = function()
+			-- Enabling built-in snippets for LSPs usinf vscode's lang servers
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 			require("mason-lspconfig").setup()
 			require("lspconfig").rust_analyzer.setup({
 			})
@@ -264,6 +274,15 @@ return {
 				filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "mq5" }
 			})
 			require("lspconfig").tsserver.setup({})
+			require("lspconfig").html.setup({
+				capabilities = capabilities
+			})
+			require("lspconfig").cssls.setup({
+				capabilities = capabilities
+			})
+			require("lspconfig").jsonls.setup({
+				capabilities = capabilities
+			})
 
 			local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 			for type, icon in pairs(signs) do
@@ -307,15 +326,46 @@ return {
 		}
 
 	},
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-nvim-lua" },
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-buffer" },
+	{
+		"hrsh7th/nvim-cmp",
+		lazy = true,
+		event = "VeryLazy",
+	},
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		lazy = true,
+		event = "VeryLazy",
+	},
+	{
+		"hrsh7th/cmp-nvim-lua",
+		lazy = true,
+		event = "VeryLazy",
+	},
+	{
+		"hrsh7th/cmp-nvim-lsp-signature-help",
+		lazy = true,
+		event = "VeryLazy",
+	},
+	{
+		"hrsh7th/cmp-vsnip",
+		lazy = true,
+		event = "VeryLazy",
+	},
+	{
+		"hrsh7th/cmp-path",
+		lazy = true,
+		event = "VeryLazy",
+
+	},
+	{
+		"hrsh7th/cmp-buffer",
+		lazy = true,
+		event = "VeryLazy",
+	},
 	{
 		"hrsh7th/vim-vsnip",
+		lazy = true,
+		event = "VeryLazy",
 		config = function()
 			local cmp = require("cmp")
 			cmp.setup({
@@ -433,6 +483,20 @@ return {
 		-- end
 	},
 	{
+		"windwp/nvim-ts-autotag",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				opts = {
+					enable_close = true, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = true -- Auto close on trailing </
+				},
+			})
+		end
+	},
+	{
 		"hedyhli/outline.nvim",
 		-- can replace with aerial
 		name = "outline",
@@ -458,6 +522,8 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		lazy = true,
+		event = "VeryLazy",
 	},
 	{
 		"folke/neodev.nvim",
@@ -481,6 +547,8 @@ return {
 	},
 	{
 		'nvim-lualine/lualine.nvim',
+		lazy = true,
+		event = "VeryLazy",
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require("lualine").setup({
@@ -524,17 +592,25 @@ return {
 
 	-- Illuminate similar variables/words
 	{
-		"RRethy/vim-illuminate"
+		"RRethy/vim-illuminate",
+		lazy = true,
+		event = "VeryLazy",
 	},
 	-- 	For Highlighting function args
 	-- 	{
 	-- " m-demare/hlargs.nvim"
 	-- 	}
 	{
-		"danilamihailov/beacon.nvim"
+		"danilamihailov/beacon.nvim",
+		lazy = true,
+		event = "VeryLazy",
+
 	},
 	-- Highlight colorcolumn limits
 	{
-		'Bekaboo/deadcolumn.nvim'
+		'Bekaboo/deadcolumn.nvim',
+		lazy = true,
+		event = "VeryLazy",
+
 	}
 }
