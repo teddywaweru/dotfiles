@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>Tm", "<cmd>tabm<CR>", { desc = "Move Current Tab to
 vim.keymap.set("n", "<leader>Ta", "<cmd>Telescope telescope-tabs list_tabs<CR>h", { desc = "List of all Tabs" })
 
 -- Hop
-vim.keymap.set("n", "fj", "<cmd>HopChar1<CR>", { desc = "hop-char" })
+vim.keymap.set("n", "gj", "<cmd>HopChar1<CR>", { desc = "hop-char" })
 
 
 -- LSP

@@ -7,7 +7,7 @@ configuration {
 	kb-row-right: "Control+Page_Down,Super+l";
 	kb-row-up: "Up,Control+p,Super+k";
 	kb-row-down: "Down,Control+n,Super+j";
-	kb-cancel: "Escape,Control+g,Control+bracketleft,Super+m";
+	kb-cancel: "Escape,Control+g,Control+bracketleft,Super+n";
 	kb-accept-entry: "Control+j,Control+m,Return,KP_Enter,Super+semicolon";
   timeout {
       action: "kb-cancel";

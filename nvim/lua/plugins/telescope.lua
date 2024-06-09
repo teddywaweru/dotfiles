@@ -22,7 +22,7 @@ return {
 		local builtin = require('telescope.builtin')
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Search files" })
 		-- vim.keymap.set('n', '<leader>fF', function() builtin.find_files({find_command = {'rg', '--files', '--hidden', '-g', '.git'}}) end, { desc = "Search files in curr dir" })
-		vim.keymap.set('n', '<leader>fF', function () 
+		vim.keymap.set('n', '<leader>fF', function ()
 			local function is_git_repo()
 				vim.fn.system("git rev-parse --is-inside-work-tree")
 				return vim.v.shell_error == 0
@@ -41,6 +41,7 @@ return {
 		vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = "Search string under cursor" })
 		vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "Search word" })
 		vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Search buffers" })
+		vim.keymap.set('n', 'gk', builtin.buffers, { desc = "Search buffers" })
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Search in help tags" })
 		vim.keymap.set('n', '<leader>lD', builtin.diagnostics,
 			{ desc = "Search Open Buffer Diagnostics" })
