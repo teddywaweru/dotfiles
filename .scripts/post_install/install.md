@@ -35,3 +35,10 @@
 [] - npm install vscode-langservers-extracted,
 [] - How to incorporate AUR packages?
 [] - Setting up localectl keyboards
+
+## Power Management
+[] - Replace xfce4 power manager settings:
+[] - Install power-profile-daemon
+[] - Configure powertop for auto-tune
+[] - Configure auto locking and auto suspending
+[] - Configure acpid for Fn buttons
