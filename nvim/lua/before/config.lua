@@ -11,7 +11,6 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.termguicolors = true
 vim.o.timeoutlen = 100
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
-vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.updatetime = 100
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -26,6 +25,10 @@ vim.opt.colorcolumn = "80"
 vim.opt.foldcolumn = "2"
 vim.opt.clipboard = "unnamed"
 vim.opt.wrap = true
+vim.opt.cmdheight = 1
+vim.opt.cmdwinheight = 5
+vim.opt.more = true
+vim.opt.hidden = true
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	group = vim.api.nvim_create_augroup('highlight_yank', {}),
@@ -35,4 +38,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 200 }
 	end,
 })
-
