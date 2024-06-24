@@ -1,5 +1,6 @@
 require("before.config")
 require("before.remap")
+require("before.globals")
 
 
 -- TODO
@@ -111,11 +112,6 @@ require("before.remap")
   --           .nav(vim.v.count > 0 and vim.v.count or 1)
   --     end, desc = "Move to next Buffer" },
   --
-  --
-  --     -- Show neoclip Register List
-  --     ["<leader>f\""] = { "<cmd>Telescope neoclip<CR>", desc = "Open neoclip register List" },
-  --
-  --
   --     -- ["<leader>r"] = { "<cmd>diffoff!<CR><cmd>windo diffthis<CR>", desc = "Diff two open window buffers" },
   --
   --   },
@@ -124,20 +120,9 @@ require("before.remap")
 
 
 -- 		---Plugins to Consider
--- 		-- treesitter-context, nvim-bqf, treesj, trouble
+-- 		--  nvim-bqf, 
 --
--- 	},
 -- 	,
--- 	,
--- 	,
--- 	{
--- 		"AckslD/nvim-neoclip.lua",
--- 		event = "VeryLazy",
--- 		config = function()
--- 			require('neoclip').setup()
--- 			require('telescope').load_extension('neoclip')
--- 		end
--- 	},
 -- 	{
 -- 		"nvim-telescope/telescope.nvim",
 -- 		event = "VeryLazy",
@@ -168,42 +153,4 @@ require("before.remap")
 -- 			})
 -- 		end
 --
--- 	},
--- 	{
--- 		"akinsho/toggleterm.nvim",
---     cmd = { "ToggleTerm", "TermExec" },
--- 		event = "VeryLazy",
--- 		config = function (_,opts)
--- 			-- load init options for the plugin
--- 			require("toggleterm").setup(opts)
--- 			-- make alterations
--- 			require("toggleterm").setup({
--- 				autochdir = true,
--- 				open_mappings = true,
--- 				insert_mappings = true
--- 			})
--- 		end
--- 	},
--- 	
--- 	{
--- 		"chentoast/marks.nvim",
--- 		event = "VeryLazy",
--- 		config = function()
--- 			require("marks").setup({
--- 				default_mappings = true,
--- 				builtin_marks = { ".", "<", ">", "z", "m", "p" },
--- 				cyclic = true,
--- 				refresh_interval = 250,
--- 				sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
--- 				excluded_filetypes = {
--- 					"neo-tree",
--- 					"nui",
--- 				},
--- 				bookmark_0 = {
--- 					sign = "⚑",
--- 					virt_text = "BookMark",
--- 				},
--- 				mappings = {},
--- 			})
--- 		end
 -- 	},

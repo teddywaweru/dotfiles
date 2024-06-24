@@ -35,8 +35,8 @@ vim.keymap.set("n", "n", "nzzzv", { desc = "Center Search result and open fold" 
 vim.keymap.set("n", "<leader>e", "<cmd>e %:h<CR>", { desc = "Open Current Buffer Location in netrw" })
 
 -- Organization
-vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>",{ desc = "Close all other buffers?" } )
-vim.keymap.set("n", "<leader>bd", ":b#|bd#<CR>", { desc = "Close current buffer and navigate to previoius" })
+vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = "Close all other buffers?" })
+vim.keymap.set("n", "<leader>bd", ":bp|bd#<CR>", { desc = "Close current buffer and navigate to previoius" })
 vim.keymap.set("n", "<leader>W", "<cmd>wall<CR>", { desc = "Save all files changes" })
 
 vim.keymap.set("t", "<C-k>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>Tm", "<cmd>tabm<CR>", { desc = "Move Current Tab to
 vim.keymap.set("n", "<leader>Ta", "<cmd>Telescope telescope-tabs list_tabs<CR>h", { desc = "List of all Tabs" })
 
 -- Hop
-vim.keymap.set("n", "gj", "<cmd>HopChar1<CR>", { desc = "hop-char" })
+vim.keymap.set("n", "gl", "<cmd>HopChar1<CR>", { desc = "hop-char" })
 
 
 -- LSP
@@ -69,14 +69,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "<leader>bs", vim.lsp.buf.format, {desc = "Format buffer depending on LSP server attached"})
-		vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {desc = "Rename all instances of the variable?"})
+		vim.keymap.set("n", "<leader>bs", vim.lsp.buf.format, { desc = "Format buffer depending on LSP server attached" })
+		vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename all instances of the variable?" })
 	end
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
 	group = vim.api.nvim_create_augroup("format.rs", {}),
 	pattern = ".rs",
-	callback = function ()
+	callback = function()
 		local curr_file = vim.api.nvim_get_current_buf()
 		vim.cmd("rustfmt" .. curr_file)
 	end

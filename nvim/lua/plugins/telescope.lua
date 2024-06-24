@@ -6,6 +6,12 @@ return {
 	event = "VeryLazy",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
+		-- local telescope = require("telescope")
+		local telescopeConfig = require("telescope.config")
+
+		-- Clone the default Telescope configuration
+		-- local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
 		require("telescope").setup()
 		local actions = require("telescope.actions")
 		require("telescope").setup({
@@ -20,28 +26,35 @@ return {
 			}
 		})
 		local builtin = require('telescope.builtin')
+		local vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--hidden",
+			"--no-ignore-vcs"
+		}
+
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Search files" })
-		-- vim.keymap.set('n', '<leader>fF', function() builtin.find_files({find_command = {'rg', '--files', '--hidden', '-g', '.git'}}) end, { desc = "Search files in curr dir" })
-		vim.keymap.set('n', '<leader>fF', function ()
-			local function is_git_repo()
-				vim.fn.system("git rev-parse --is-inside-work-tree")
-				return vim.v.shell_error == 0
-			end
-			local function get_git_root()
-				local dot_git_path = vim.fn.finddir(".git", ".;")
-				return vim.fn.fnamemodify(dot_git_path, ":h")
-			end
-			local opts = {}
-			if is_git_repo() then
-				opts = {
-					cwd = get_git_root(),
+		vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = "Grep string under cursor" })
+		vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "Grep word" })
+		vim.keymap.set('n', '<leader>fF',
+			function()
+				local find_command = {
+					'rg', '--files', '--no-ignore-vcs', '--hidden'
 				}
-			end
-		end, { desc = "Search files in curr dir" })
-		vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = "Search string under cursor" })
-		vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "Search word" })
+				builtin.find_files({ find_command = find_command })
+			end,
+			{ desc = "Search files incl. hidden" })
+		vim.keymap.set('n', '<leader>fW', function()
+			builtin.live_grep({ vimgrep_arguments = vimgrep_arguments })
+		end, { desc = "Grep incl. hidden" })
+		vim.keymap.set('n', '<leader>fC', function()
+			builtin.grep_string({ vimgrep_arguments = vimgrep_arguments })
+		end, { desc = "Grep string under cursor incl. hidden" })
 		vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Search buffers" })
-		vim.keymap.set('n', 'gk', builtin.buffers, { desc = "Search buffers" })
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Search in help tags" })
 		vim.keymap.set('n', '<leader>lD', builtin.diagnostics,
 			{ desc = "Search Open Buffer Diagnostics" })
