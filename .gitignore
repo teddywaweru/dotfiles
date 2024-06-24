@@ -1,1 +1,28 @@
-*
+# Ignore config files that can be added to .config
+/*.*
+
+# Ignore all other directories that may be added by other applications
+# Exclusion list below specifies application configs that will be tracked
+**/
+
+# Exclude the following config directories
+!.scripts
+!alacritty
+!dunst
+!i3
+!i3status-rust
+!nitrogen
+!nvim
+# Ignore Lazy lock file
+nvim/lazy-lock.json
+
+!picom
+!rofi
+!tmux
+!vifm
+# Ignore vifm's default files
+vifm/*.txt
+vifm/*.json
+
+!zsh
+
