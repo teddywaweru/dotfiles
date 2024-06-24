@@ -1,12 +1,13 @@
 alsa-utils
 bluez
 bluez-utils
+btop
 dhcpcd
 dunst
 dust
+flameshot
 fprintd
 fzf
-htop
 i3lock
 intel-media-driver
 iwd
@@ -21,8 +22,9 @@ pulseaudio-bluetooth
 ripgrep
 rofi
 sof-firmware
-s-tui
 tmux
+transmission-cli
+tree
 unzip
 vifm
 vivaldi
