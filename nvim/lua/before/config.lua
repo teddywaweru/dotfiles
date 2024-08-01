@@ -9,7 +9,7 @@ vim.wo.foldmethod = "indent"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.opt.termguicolors = true
-vim.o.timeoutlen = 100
+vim.o.timeoutlen = 200
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.updatetime = 100
 vim.opt.tabstop = 4
