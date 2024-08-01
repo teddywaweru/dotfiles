@@ -13,6 +13,22 @@ return {
 		end
 	},
 	{
+		"stevearc/dressing.nvim",
+		config = function()
+			require("dressing").setup({
+				input = {
+					title_pos = "right",
+					relative = "win",
+					mappings = {
+						i = {
+							["<C-[>"] = "Close"
+						}
+					},
+				}
+			})
+		end
+	},
+	{
 		'nvim-lualine/lualine.nvim',
 		lazy = true,
 		event = "VeryLazy",
