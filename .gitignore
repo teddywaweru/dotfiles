@@ -13,13 +13,14 @@
 !i3status-rust
 !nitrogen
 !nvim
-# Ignore Lazy lock file
-nvim/lazy-lock.json
-
 !picom
 !rofi
 !tmux
 !vifm
+
+# Ignore Lazy lock file
+nvim/lazy-lock.json
+
 # Ignore vifm's default files
 vifm/*.txt
 vifm/*.json
