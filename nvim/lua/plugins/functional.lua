@@ -1,6 +1,31 @@
-
 return {
 
+	{
+		"stevearc/resession.nvim",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			local resession = require("resession")
+			require("resession").setup({
+				autosave = {
+					enabled = true,
+					interval = 60,
+					notify = false
+				}
+			})
+
+			vim.keymap.set("n", "<leader>ss", resession.save, { desc = "Save Session" })
+			vim.keymap.set("n", "<leader>st", resession.save_tab, { desc = "Save Tab Session" })
+			vim.keymap.set("n", "<leader>sl", resession.load, { desc = "Load Session" })
+			vim.keymap.set("n", "<leader>sd", resession.delete, { desc = "Delete Session" })
+
+			vim.api.nvim_create_autocmd("VimLeavePre", {
+				callback = function()
+					resession.save("last")
+				end
+			})
+		end
+	},
 	{
 		"vifm/vifm.vim",
 		lazy = true,
@@ -19,12 +44,12 @@ return {
 			require("plenary")
 		end
 	},
-	{
-		-- Save sessions
-		"rmagatti/auto-session",
-		Lazy = true,
-		event = "TabEnter"
-	},
+	-- {
+	-- 	-- Save sessions
+	-- 	"rmagatti/auto-session",
+	-- 	Lazy = true,
+	-- 	event = "TabEnter"
+	-- },
 	{
 		-- Scoped Tabs
 		"tiagovla/scope.nvim",
@@ -70,7 +95,6 @@ return {
 		event = "VeryLazy",
 		init = function()
 			vim.o.timeout = true
-			vim.o.timeout = 50
 		end,
 		opts = {}
 	},
@@ -89,14 +113,6 @@ return {
 		end,
 	},
 	{
-		"f-person/git-blame.nvim",
-		lazy = true,
-		event = "BufEnter",
-		config = function()
-			require("gitblame").setup()
-		end
-	},
-	{
 		"kdheepak/lazygit.nvim",
 		lazy = true,
 		event = "VeryLazy",
@@ -104,10 +120,14 @@ return {
 			"plenary"
 		},
 		config = function()
-			vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Toggle LazyGit" })
+			vim.keymap.set("n", "<leader>lg", function()
+				local gitdir = vim.fn.system("git rev-parse --show-toplevel")
+				local _ = "-p " .. gitdir
+				-- return "<cmd>LazyGit " .. flags .. "<CR>"
+				vim.cmd("LazyGit")
+			end, { desc = "Toggle LazyGit" })
 		end,
 		opts = function()
-			vim.g.lazygit_floating_window_scaling_factor = 0.9
 		end
 	},
 	{
@@ -151,10 +171,13 @@ return {
 	},
 	{
 		"kylechui/nvim-surround",
-		lazy = true,
-		event = "VeryLazy",
 		version = "*",
-		opts = {}
+		lazy = true,
+		event = "BufEnter",
+		opts = {},
+		config = function()
+			require("nvim-surround").setup()
+		end
 	},
 	{
 		"akinsho/toggleterm.nvim",
@@ -186,29 +209,8 @@ return {
 		event = "VeryLazy",
 	},
 	{
-		'ThePrimeagen/harpoon',
+		"NvChad/nvim-colorizer.lua",
+		lazy = true,
 		event = "VeryLazy",
-		config = function()
-			local mark = require("harpoon.mark")
-			local ui = require("harpoon.ui")
-			vim.keymap.set("n", "<leader>aa", mark.add_file)
-			vim.keymap.set("n", "<leader>au", ui.toggle_quick_menu)
-			vim.keymap.set("n", "H", ui.nav_prev)
-			vim.keymap.set("n", "L", ui.nav_next)
-			vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
-			vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
-			vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#7aa2f7')
-			vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#7aa2f7')
-			vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
-			require("harpoon").setup({
-				save_on_change = true,
-				tabline = false,
-				menu = {
-					-- width = vim.api.nvim_win_get_width(0) - 20,
-					width = 60,
-					height = vim.api.nvim_win_get_height(0) - 30
-				}
-			})
-		end
-	},
+	}
 }
