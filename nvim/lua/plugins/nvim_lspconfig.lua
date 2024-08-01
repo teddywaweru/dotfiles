@@ -4,6 +4,7 @@ return {
 	lazy = true,
 	event = "VeryLazy",
 	config = function()
+
 		-- Enabling built-in snippets for LSPs usinf vscode's lang servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -23,7 +24,29 @@ return {
 		require("lspconfig").clangd.setup({
 			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "mq5" }
 		})
-		require("lspconfig").tsserver.setup({})
+
+		-- local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() ..
+		-- 	'/node_modules/@vue/language-server'
+
+		require("lspconfig").svelte.setup({})
+		require("lspconfig").tsserver.setup({
+			init_options = {
+				plugins = {
+					-- {
+					-- 	name =
+					-- 	'@vue/typescript-plugin',
+					-- 	location = vue_language_server_path,
+					-- 	languages = { 'vue' },
+					-- },
+				}
+			},
+			filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
+		})
+
+		-- require("lspconfig").volar.setup({
+		-- 	capabilities = capabilities
+		-- })
+
 		require("lspconfig").html.setup({
 			capabilities = capabilities
 		})
@@ -32,6 +55,10 @@ return {
 		})
 		require("lspconfig").jsonls.setup({
 			capabilities = capabilities
+		})
+		require("lspconfig").lemminx.setup({
+			capabilities = capabilities,
+			filetypes = { "svd", "xml" }
 		})
 
 		local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
