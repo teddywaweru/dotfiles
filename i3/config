@@ -25,8 +25,11 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+o kill
 
-# start program launcher
-bindsym $mod+n exec --no-startup-id rofi -show drun window
+# start rofi program launcher
+bindsym $mod+$mod_2+n exec --no-startup-id rofi -show drun
+
+# select from open windows on rofi
+bindsym $mod+n exec --no-startup-id rofi -show window 
 
 # Start Applications
 bindsym Print exec --no-startup-id flameshot gui
@@ -40,6 +43,9 @@ bindsym $mod+j focus down;   exec --no-startup-id ~/.config/.scripts/move_mouse.
 bindsym $mod+k focus up;     exec --no-startup-id ~/.config/.scripts/move_mouse.sh
 bindsym $mod+l focus right;  exec --no-startup-id ~/.config/.scripts/move_mouse.sh
 
+exec --no-startup-id ~/.config/.scripts/i3_back_forth.sh
+bindsym $mod+semicolon [con_mark=_prevFocus0] focus
+
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -51,10 +57,12 @@ bindsym $mod+m workspace back_and_forth
 bindsym $mod+Shift+m move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation toggle
-bindsym $mod+semicolon split toggle
+bindsym $mod+comma split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+popup_during_fullscreen smart
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
@@ -209,10 +217,8 @@ exec --no-startup-id powertop --auto-tune
 # Set the keyboard continual key press rate & speed
 exec_always --no-startup-id xset r rate 200 60
 # Configure for display monitor
-exec --no-startup-id $HOME/.config/.scripts/startup.sh
+exec_always --no-startup-id $HOME/.config/.scripts/startup.sh
 
-exec_always nitrogen --restore &
-exec_always  picom -b
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -256,7 +262,7 @@ bar {
 bar {
 	output eDP-1
 	i3bar_command i3bar -t
-	status_command ~/dev/make-files/i3status-rust/target/debug/i3status-rs  $HOME/.config/i3status-rust/config.toml
+	status_command i3status-rs  $HOME/.config/i3status-rust/config.toml
 	position top
         tray_output primary
 	mode hide
@@ -290,7 +296,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym $mod+$mod_2+n bar mode toggle
+bindsym $mod+p bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
