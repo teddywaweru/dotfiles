@@ -27,7 +27,7 @@ return {
 		"folke/trouble.nvim",
 		lazy = true,
 		event = "VeryLazy",
-		dependencies = { "nvim/tree/nvim-web-devicons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			mode = "workspace_diagnostics"
 
@@ -163,11 +163,16 @@ return {
 		},
 	},
 	{
-		"/lewis6991/gitsigns.nvim",
+		"lewis6991/gitsigns.nvim",
 		event = "VeryLazy",
 		lazy = true,
 		config = function()
-			require("gitsigns").setup()
+			require("gitsigns").setup({
+				current_line_blame = true,
+				numhl = true,
+				-- linehl = true,
+				word_diff = true
+			})
 		end
 	},
 	{
