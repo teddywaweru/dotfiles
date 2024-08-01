@@ -1,8 +1,11 @@
 #!/bin/sh
 
+set -e
+
 extern=HDMI-1
 primary=eDP-1
-if xrandr | grep "$extern"; then
+if ! xrandr | grep "$extern disconnected"; then
+	echo "HDMI connected"
 	line=$( xrandr | grep "$extern" -n | cut -d : -f 1 )
 	extern_resolution_line=$(($line+1))
 	extern_resolution=$(xrandr| sed -n "$extern_resolution_line p" | awk -F " " '{print $1}' )
