@@ -21,7 +21,7 @@ if ! xrandr | grep "$extern disconnected"; then
 		xrandr --output "$primary" --mode 1920x1080
 
 		if [ $extern_resolution == "1920x1080" ]; then
-			xrandr --output HDMI-1 --mode $extern_resolution --scale 1x0.999 --above eDP-1 
+			xrandr --output "$extern" --mode $extern_resolution --scale 1x0.999 --above eDP-1 
 		else 
 			# xrandr --output "$extern"  --mode "1920x1080" --above "$primary" 
 			xrandr --output "$extern"  --mode "1920x1200" --above "$primary" 
@@ -31,5 +31,12 @@ if ! xrandr | grep "$extern disconnected"; then
 
 		xrandr --output eDP-1 --mode $prim_resolution --refresh 60
 	fi
+
+else
+	echo "HDMI disconnected"
+	line=$( xrandr | grep "$primary" -n | cut -d : -f 1 )
+	prim_resolution_line=$(($line+1))
+	prim_resolution=$(xrandr| sed -n "$prim_resolution_line p" | awk -F " " '{print $1}' )
+	xrandr --auto
 
 fi

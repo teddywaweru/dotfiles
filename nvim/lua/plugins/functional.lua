@@ -185,7 +185,7 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("toggleterm").setup({
-				open_mapping = [[<c-\>]],
+				-- open_mapping = false,
 				-- insert_mapping = false,
 				-- terminal_mapping = false,
 				autochdir = true,
@@ -193,13 +193,13 @@ return {
 				float_opts = {
 					border = "curved",
 					width = 150,
-					height = 30,
+					height = 40,
 					title_pos = "center"
 				}
 			})
 		end,
 		opts = function()
-			vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
+			vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
 		end
 
 	},

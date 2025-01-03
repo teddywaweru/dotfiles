@@ -11,6 +11,15 @@ return {
 
 		require("mason-lspconfig").setup()
 		require("lspconfig").rust_analyzer.setup({
+			settings = {
+				['rust_analyzer'] = {
+					diagnostics = {
+						refreshSupport = false,
+						-- enabled = false
+					}
+				}
+
+			}
 		})
 		require("lspconfig").lua_ls.setup({
 			settings = {
@@ -29,7 +38,7 @@ return {
 		-- 	'/node_modules/@vue/language-server'
 
 		require("lspconfig").svelte.setup({})
-		require("lspconfig").tsserver.setup({
+		require("lspconfig").ts_ls.setup({
 			init_options = {
 				plugins = {
 					-- {

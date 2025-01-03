@@ -69,6 +69,7 @@ bindkey "" autosuggest-accept
 
 # Aliases
 export EDITOR="usr/bin/nvim"
+alias s='startx'
 alias v='nvim'
 alias cls="clear"
 alias z='zellij'

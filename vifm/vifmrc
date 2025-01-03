@@ -588,3 +588,8 @@ nnoremap <c-u> <c-w>x
 " ------------------------------------------------------------------------------
 nnoremap O :!nvim . <cr>
 
+" File Previewer Settings"
+" Enable Color for directories and files in preview mode
+" fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
+" fileviewer */ ls --color=always
+" fileviewer .*/ ls --color=always

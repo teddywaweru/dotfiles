@@ -3,9 +3,9 @@
 [x] - Fix time values
 [] - Configure a Blurlock system
 [] - Check out autocpfreq, thermald, and compare power-profile-tools
-[] - Install powertop
+[x] - Install powertop
 [] - Install acpid
-[] - Check on conky
+[x] - Check on conky
 [] - Nvim file and grep not working
 [] - Mouse functionality for inverted scrolling, tapping
 [] - Bluetooth(Blueman)
@@ -39,6 +39,10 @@
 ## Power Management
 [] - Replace xfce4 power manager settings:
 [] - Install power-profile-daemon
-[] - Configure powertop for auto-tune
+[] - Configure powertop for auto-tune auto start service
 [] - Configure auto locking and auto suspending
 [] - Configure acpid for Fn buttons
+
+## Systemd service to Configure
+[] - powertop
+[] - Bluetooth
