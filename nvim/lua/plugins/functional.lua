@@ -1,9 +1,24 @@
 return {
 
 	{
+		--Resession
 		"stevearc/resession.nvim",
 		lazy = true,
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>ss", ":lua require('resession').save()<CR>", "n", desc = "Save Session",
+			},
+			{
+				"<leader>st", ":lua require('resession').save_tab()<CR>", "n", desc = "Save Tab Session",
+			},
+			{
+				"<leader>sl", ":lua require('resession').load()<CR>", "n", desc = "Load Session",
+			},
+			{
+				"<leader>sd", ":lua require('resession').delete()<CR>", "n", desc = "Delete Session",
+			}
+		},
 		config = function()
 			local resession = require("resession")
 			require("resession").setup({
@@ -13,12 +28,6 @@ return {
 					notify = false
 				}
 			})
-
-			vim.keymap.set("n", "<leader>ss", resession.save, { desc = "Save Session" })
-			vim.keymap.set("n", "<leader>st", resession.save_tab, { desc = "Save Tab Session" })
-			vim.keymap.set("n", "<leader>sl", resession.load, { desc = "Load Session" })
-			vim.keymap.set("n", "<leader>sd", resession.delete, { desc = "Delete Session" })
-
 			vim.api.nvim_create_autocmd("VimLeavePre", {
 				callback = function()
 					resession.save("last")
@@ -27,15 +36,23 @@ return {
 		end
 	},
 	{
+		-- Vifm
 		"vifm/vifm.vim",
 		lazy = true,
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>v", "<cmd>Vifm<CR>", desc = "Open Vifm File View"
+			}
+		}
 	},
 	{
+		-- Tmux Navigator
 		'christoomey/vim-tmux-navigator',
 		event = "VeryLazy"
 	},
 	{
+		-- Plenary
 		"nvim-lua/plenary.nvim",
 		name = "plenary",
 		lazy = true,
@@ -57,6 +74,7 @@ return {
 		event = "TabEnter"
 	},
 	{
+		-- Marks
 		"chentoast/marks.nvim",
 		lazy = true,
 		event = "BufEnter",
@@ -90,6 +108,7 @@ return {
 		end
 	},
 	{
+		-- Which Key
 		"folke/which-key.nvim",
 		lazy = true,
 		event = "VeryLazy",
@@ -99,6 +118,7 @@ return {
 		opts = {}
 	},
 	{
+		-- Notify
 		"rcarriga/nvim-notify",
 		lazy = true,
 		event = "VeryLazy",
@@ -113,63 +133,78 @@ return {
 		end,
 	},
 	{
+		-- LazyGit
 		"kdheepak/lazygit.nvim",
 		lazy = true,
 		event = "VeryLazy",
 		dependencies = {
 			"plenary"
 		},
-		config = function()
-			vim.keymap.set("n", "<leader>lg", function()
-				local gitdir = vim.fn.system("git rev-parse --show-toplevel")
-				local _ = "-p " .. gitdir
-				-- return "<cmd>LazyGit " .. flags .. "<CR>"
-				vim.cmd("LazyGit")
-			end, { desc = "Toggle LazyGit" })
-		end,
-		opts = function()
-		end
+		keys = {
+			{
+				"<leader>lg",
+				function()
+					local gitdir = vim.fn.system("git rev-parse --show-toplevel")
+					local _ = "-p " .. gitdir
+					-- return "<cmd>LazyGit " .. flags .. "<CR>"
+					vim.cmd("LazyGit")
+				end,
+				desc = "Toggle LazyGit"
+			}
+		},
 	},
 	{
 		"AckslD/nvim-neoclip.lua",
 		lazy = true,
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>f/", "<cmd>Telescope neoclip<CR>", "n", desc = "Search in texts"
+			}
+		},
 		config = function()
 			require('neoclip').setup()
 			require('telescope').load_extension('neoclip')
-			vim.keymap.set("n", "<leader>f/", "<cmd>Telescope neoclip<CR>", { desc = "Search in texts" })
 		end
 	},
 	{
+		-- Hop
 		"smoka7/hop.nvim",
 		lazy = true,
 		event = "VeryLazy",
-		-- branch = 'v2', -- optional but strongly recommended
 		cmd = { "HopChar1", "HopLine" },
+		keys = {
+			{
+				"gl", "<cmd>HopChar1MW<CR>", "n", desc = "Hop to a character"
+			}
+		},
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
 			require("hop").setup {
 				keys = 'etovxqpdygfblzhckisuran',
 				case_insensitive = false }
 		end,
-		opts = {
-		}
+		opts = {}
 	},
 	-- Splitting/Joining blocks of code arrays, hashes, statements, objects
 	{
 		"Wansmer/treesj",
 		lazy = true,
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>lT", "<cmd>TSJToggle<CR>", desc = "Toggle Split/Join code blocks "
+			}
+		},
 		config = function()
 			require("treesj").setup({
 				max_join_length = 1500,
 				use_default_keymaps = false
-
 			})
-			vim.keymap.set('n', '<leader>lT', '<cmd>TSJToggle<CR>', { desc = "Toggle Split/Join code blocks " })
 		end
 	},
 	{
+		-- Surround
 		"kylechui/nvim-surround",
 		version = "*",
 		lazy = true,
@@ -180,9 +215,15 @@ return {
 		end
 	},
 	{
+		-- ToggleTerm
 		"akinsho/toggleterm.nvim",
 		lazy = true,
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>t", "<cmd>ToggleTerm<CR>", "n", desc = "Toggle Floating terminal"
+			}
+		},
 		config = function()
 			require("toggleterm").setup({
 				-- open_mapping = false,
@@ -199,7 +240,7 @@ return {
 			})
 		end,
 		opts = function()
-			vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
+			vim.keymap.set("t", "<C-k>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
 		end
 
 	},

@@ -8,7 +8,8 @@ vim.keymap.set("n", "<leader>D", "\"+d", { desc = "Delete to System Clipboard" }
 vim.keymap.set("v", "<leader>D", "\"+d", { desc = "Delete to System Clipboard" })
 
 vim.keymap.set("n", "<leader>;", "<Esc><S-a>;<Esc>", { desc = "Insert ; & Esc" })
-vim.keymap.set("i", "<C-f>", "<Esc><S-a>;<CR>", { desc = "Insert ; & Continue" })
+vim.keymap.set("i", "<C-j>", "<Esc><S-a>;<CR>", { desc = "Insert ; & Continue" })
+
 
 vim.keymap.set("v", "<C-p>", "10kzz", { desc = "Move up" })
 vim.keymap.set("v", "<C-n>", "10jzz", { desc = "Move down" })
@@ -22,8 +23,6 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to down window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to up window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-
-vim.keymap.set("n", "<leader>v", "<cmd>Vifm<CR>", { desc = "Open Vifm File View" })
 
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Center Search result and open fold" })
 vim.keymap.set("n", "<C-p>", "10kzz", { desc = "Move up" })
@@ -39,7 +38,7 @@ vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = "Close all other b
 vim.keymap.set("n", "<leader>bd", ":bp|bd#<CR>", { desc = "Close current buffer and navigate to previoius" })
 vim.keymap.set("n", "<leader>W", "<cmd>wall<CR>", { desc = "Save all files changes" })
 
-vim.keymap.set("t", "<C-k>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
+-- vim.keymap.set("t", "<C-k>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
 
 --     -- QuickFix Menu
 vim.keymap.set("n", "<leader>fqo", "<cmd>copen<CR>", { desc = "Open the QuickFix List" })
@@ -49,11 +48,7 @@ vim.keymap.set("n", "<leader>fql", "<cmd>call setqflist([],'r')<CR>", { desc = "
 --     -- Tab Menu
 vim.keymap.set("n", "<leader>Tn", "<cmd>tabnew<CR>", { desc = "Open a New Tab Section" })
 vim.keymap.set("n", "<leader>Tm", "<cmd>tabm<CR>", { desc = "Move Current Tab to End" })
-vim.keymap.set("n", "<leader>Ta", "<cmd>Telescope telescope-tabs list_tabs<CR>h", { desc = "List of all Tabs" })
-
--- Hop
-vim.keymap.set("n", "gl", "<cmd>HopChar1MW<CR>", { desc = "hop-char" })
-
+-- vim.keymap.set("n", "<leader>Ta", "<cmd>Telescope telescope-tabs list_tabs<CR>h", { desc = "List of all Tabs" })
 
 -- LSP
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float)
