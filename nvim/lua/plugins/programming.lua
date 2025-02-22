@@ -87,6 +87,10 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		"rafamadriz/friendly-snippets",
+		-- dependencies = { },
+	},
+	{
 		"hrsh7th/cmp-vsnip",
 		lazy = true,
 		event = "VeryLazy",
@@ -112,8 +116,72 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
+		dependencies = {
+			"theHamsta/nvim-dap-virtual-text",
+			"williamboman/mason.nvim",
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio"
+		},
 		lazy = true,
 		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>db", "<cmd>:lua require('dap').toggle_breakpoint()<CR>", "n", desc = "Toggle Breakpoint",
+			},
+			{
+				"<leader>dr", "<cmd>:lua require('dap').continue()<CR>", "n", desc = "Start/Resume Debugger"
+			},
+			{
+				"<leader>dt", "<cmd>:lua require('dap').terminate()<CR>", "n", desc = "Close Debugger"
+			},
+			{
+				"<leader>di", "<cmd>:lua require('dap').step_into()<CR>", "n", desc = "Step Into"
+			},
+			{
+				"<leader>do", "<cmd>:lua require('dap').step_over()<CR>", "n", desc = "Step Over"
+			},
+			{
+				"<leader>dO", "<cmd>:lua require('dap').step_out()<CR>", "n", desc = "Step Out"
+			},
+			{
+				"<leader>dh", "<cmd>:lua require('dap').hover()<CR>", "n", desc = "Hover"
+			}
+
+		},
+		opts = {},
+		config = function()
+			vim.fn.sign_define('DapBreakpoint', {
+				text = "✪ ",
+				texthl = "hl-DiagnosticHint",
+				linehl = "yellow",
+				numhl =
+				"green"
+			})
+			local dap = require("dap")
+			local gdb = vim.fn.exepath("gdb")
+
+			if gdb ~= "" then
+				dap.adapters.gdb = {
+					type = "executable",
+					command = gdb,
+					args = { "--interpreter=dap",
+						"--eval-command",
+						"set print pretty on" }
+				}
+			end
+			dap.configurations.c = {
+				{
+					name = "Launch",
+					type = "gdb",
+					request = "launch",
+					program = function()
+						return vim.fn.input('Path to executable:', vim.fn.getcwd() .. '/', 'file')
+					end,
+					cwd = "${workspaceFolder}",
+					stopAtBeginningOfMainSubprogram = false,
+				}
+			}
+		end
 
 	},
 	{
@@ -124,6 +192,29 @@ return {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio"
 		},
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+
+			dapui.setup()
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
+		end
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		lazy = true,
+		event = "VeryLazy",
+		config = function ()
+			require("nvim-dap-virtual-text").setup()
+		end
 	},
 	{
 		"simrat39/rust-tools.nvim",
