@@ -4,7 +4,6 @@ return {
 	lazy = true,
 	event = "VeryLazy",
 	config = function()
-
 		-- Enabling built-in snippets for LSPs usinf vscode's lang servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -30,14 +29,28 @@ return {
 				}
 			}
 		})
-		require("lspconfig").clangd.setup({
-			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "mq5" }
+		require("lspconfig").svls.setup({
+			capabilities = capabilities,
+			filetypes = { "v", "systemverilog", "verilog", "vlg", "vh" }
 		})
-
+		require("lspconfig").verible.setup({
+			capabilities = capabilities,
+			filetypes = { "v", "systemverilog", "verilog", "vlg", "vh" }
+		})
+		require("lspconfig").clangd.setup({
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "mq5" },
+			init_options = { compilationDatabasePath = "./build" }
+		})
+		require("lspconfig").cmake.setup({
+		})
+		require("lspconfig").bashls.setup({
+			filetypes = {"zsh", "sh"}
+		})
 		-- local vue_language_server_path = require('mason-registry').get_package('vue-language-server'):get_install_path() ..
 		-- 	'/node_modules/@vue/language-server'
 
-		require("lspconfig").svelte.setup({})
+		require("lspconfig").svelte.setup({
+		})
 		require("lspconfig").ts_ls.setup({
 			init_options = {
 				plugins = {
@@ -65,10 +78,10 @@ return {
 		require("lspconfig").jsonls.setup({
 			capabilities = capabilities
 		})
-		require("lspconfig").lemminx.setup({
-			capabilities = capabilities,
-			filetypes = { "svd", "xml" }
-		})
+		-- require("lspconfig").lemminx.setup({
+		-- 	capabilities = capabilities,
+		-- 	filetypes = { "svd", "xml" }
+		-- })
 
 		local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 		for type, icon in pairs(signs) do
