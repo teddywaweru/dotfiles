@@ -29,6 +29,8 @@ vim.opt.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.more = true
 vim.opt.hidden = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	group = vim.api.nvim_create_augroup('highlight_yank', {}),
