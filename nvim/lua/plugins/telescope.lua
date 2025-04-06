@@ -37,7 +37,15 @@ return {
 			"--no-ignore-vcs"
 		}
 
-		vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Search files" })
+		vim.keymap.set('n', '<leader>ff',
+			function()
+				local find_command = {
+					"rg", "--files", "--no-ignore-vcs",
+				}
+				builtin.find_files()
+			end, {
+				desc = "Search files",
+			})
 		vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = "Grep string under cursor" })
 		vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "Grep word" })
 		vim.keymap.set('n', '<leader>fF',
@@ -45,7 +53,9 @@ return {
 				local find_command = {
 					'rg', '--files', '--no-ignore-vcs', '--hidden'
 				}
-				builtin.find_files({ find_command = find_command })
+				builtin.find_files({
+					find_command = find_command,
+				})
 			end,
 			{ desc = "Search files incl. hidden" })
 		vim.keymap.set('n', '<leader>fW', function()
@@ -58,5 +68,7 @@ return {
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Search in help tags" })
 		vim.keymap.set('n', '<leader>lD', builtin.diagnostics,
 			{ desc = "Search Open Buffer Diagnostics" })
+		vim.keymap.set('n', '<leader>fm', builtin.marks,
+			{ desc = "Search available marks" })
 	end
 }
