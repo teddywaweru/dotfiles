@@ -249,11 +249,11 @@ return {
 		lazy = true,
 		event = "VeryLazy",
 	},
-	{
-		"NvChad/nvim-colorizer.lua",
-		lazy = true,
-		event = "VeryLazy",
-	},
+	-- {
+	-- 	"NvChad/nvim-colorizer.lua",
+	-- 	lazy = true,
+	-- 	event = "VeryLazy",
+	-- },
 	{
 		--TODO
 		"folke/todo-comments.nvim",
@@ -263,4 +263,14 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 		}
-	} }
+	},
+	{
+		-- Color Code Colorizer
+		"norcalli/nvim-colorizer.lua",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("colorizer").setup()
+		end
+	}
+}
