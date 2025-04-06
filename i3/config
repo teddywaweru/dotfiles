@@ -103,9 +103,12 @@ bindsym $mod+$mod_2+h workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
                 # set $ws2 2:
-set $ws1  󱣻 
-set $ws2    
-set $ws3   
+# set $ws1  󱣻 
+# set $ws2    
+# set $ws3   
+set $ws1 1
+set $ws2 2
+set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
@@ -259,48 +262,48 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 
-bar {
-	output HDMI-1
-        position top
-	mode hide
-	hidden_state hide
-	modifier none
-        }
-bar {
-	output eDP-1
-	i3bar_command i3bar -t
-	status_command i3status-rs  $HOME/.config/i3status-rust/config.toml
-	position top
-        tray_output primary
-	mode hide
-	hidden_state hide
-	modifier none
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-# tray_output primary
-# tray_output HDMI-1
-        # tray_output eDP-1
-
-	bindsym button4 nop
-	bindsym button5 nop
-        font xft:URWGothic-Book 10
-  # font xft:Code New Roman 11
-	strip_workspace_numbers no
-
-    colors {
-        # background #222D31
-        background #00000000
-        statusline #F9FAF9
-        separator  #454947
-
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-}
+# bar {
+# 	output HDMI-1
+#         position top
+# 	# mode hide
+# 	hidden_state hide
+# 	modifier none
+#         }
+# bar {
+# 	output eDP-1
+# 	# i3bar_command i3bar -t
+# 	status_command i3status-rs  $HOME/.config/i3status-rust/config.toml
+# 	position top
+#         tray_output primary
+# 	# mode hide
+# 	hidden_state hide
+# 	modifier none
+#
+# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# # tray_output primary
+# # tray_output HDMI-1
+#         # tray_output eDP-1
+#
+# 	bindsym button4 nop
+# 	bindsym button5 nop
+#         font xft:URWGothic-Book 10
+#   # font xft:Code New Roman 11
+# 	strip_workspace_numbers no
+#
+#     colors {
+#         # background #222D31
+#         background #00000000
+#         statusline #F9FAF9
+#         separator  #454947
+#
+# #                      border  backgr. text
+#         focused_workspace  #F9FAF9 #16a085 #292F34
+#         active_workspace   #595B5B #353836 #FDF6E3
+#         inactive_workspace #595B5B #222D31 #EEE8D5
+#         binding_mode       #16a085 #2C2C2C #F9FAF9
+#         urgent_workspace   #16a085 #FDF6E3 #E5201D
+#     }
+# }
 
 # hide/unhide i3status bar
 bindsym $mod+p bar mode toggle
