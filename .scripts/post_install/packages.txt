@@ -13,6 +13,7 @@ intel-media-driver
 iwd
 lazygit
 libinput
+man-pages
 neovim
 nitrogen
 picom
