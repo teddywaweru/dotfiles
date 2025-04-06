@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>D", "\"+d", { desc = "Delete to System Clipboard" }
 vim.keymap.set("v", "<leader>D", "\"+d", { desc = "Delete to System Clipboard" })
 
 vim.keymap.set("n", "<leader>;", "<Esc><S-a>;<Esc>", { desc = "Insert ; & Esc" })
-vim.keymap.set("i", "<C-j>", "<Esc><S-a>;<CR>", { desc = "Insert ; & Continue" })
+vim.keymap.set("i", "<C-l>", "<Esc><S-a>;<CR>", { desc = "Insert ; & Continue" })
 
 
 vim.keymap.set("v", "<C-p>", "10kzz", { desc = "Move up" })
