@@ -26,10 +26,10 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+o kill
 
 # start rofi program launcher
-bindsym $mod+$mod_2+n exec --no-startup-id rofi -show drun
+bindsym $mod+$mod_2+n exec --no-startup-id ~/dev/proj/make-files/rofi/build/rofi -show drun
 
 # select from open windows on rofi
-bindsym $mod+n exec --no-startup-id rofi -show window 
+bindsym $mod+n exec --no-startup-id ~/dev/proj/make-files/rofi/build/rofi -show window 
 
 # Start Applications
 bindsym Print exec --no-startup-id flameshot gui
@@ -60,7 +60,7 @@ bindsym $mod+Shift+m move container to workspace back_and_forth; workspace back_
 bindsym $mod+comma split toggle
 
 # toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+p fullscreen toggle
 
 popup_during_fullscreen smart
 
