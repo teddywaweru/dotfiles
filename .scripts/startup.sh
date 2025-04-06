@@ -8,4 +8,5 @@ sh $HOME/.config/.scripts/touchpad.sh
 
 sh $HOME/.config/.scripts/background.sh
 
+sh $HOME/.config/.scripts/poly_launch.sh
 
