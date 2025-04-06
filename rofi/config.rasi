@@ -13,6 +13,10 @@ configuration {
       action: "kb-cancel";
       delay:  0;
   }
+  window {
+	  hide-active-window: true;
+	  ignore: "scratchpad_terminal";
+  }
   filebrowser {
       directories-first: true;
       sorting-method:    "name";
