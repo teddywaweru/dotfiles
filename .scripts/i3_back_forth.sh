@@ -57,11 +57,15 @@ do
 	period=$(($currentTime-$lastTime))
 	lastTime=$currentTime
 	
+	windowName=$(xprop -id $currentFocus | awk -F '"' '/_NET_WM_NAME/{print $2}')
+	
+	if [[ $windowName != "scratchpad_terminal" ]] then
+
 	# previousFocus: window id of the previously focused (activated) window.
 	previousFocus=$currentFocus
+	fi
 	# currentFocus: window id of the window that has just being activated.
 	currentFocus=$(echo "$line" | awk -F' ' '{printf $NF}')
-	
 	# push the previousFocus id to the queue if the time spent on the previous window was greater than permanence. Check also to allow fast switching between two windows.
 	if [ $period -gt $permanence -o "$currentFocus" = "${queue[0]}" ] 
 	then
