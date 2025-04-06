@@ -29,6 +29,7 @@ return {
 		end
 	},
 	{
+		--StatusLine
 		'nvim-lualine/lualine.nvim',
 		lazy = true,
 		event = "VeryLazy",
@@ -67,9 +68,8 @@ return {
 	-- {
 	-- 	"goolord/alpha-nvim "
 	-- },
-
-	-- Illuminate similar variables/words
 	{
+		-- Illuminate similar variables/words
 		"RRethy/vim-illuminate",
 		lazy = true,
 		event = "VeryLazy",
@@ -79,6 +79,7 @@ return {
 	-- " m-demare/hlargs.nvim"
 	-- 	}
 	{
+		-- Highlight Cursor when it moves
 		"danilamihailov/beacon.nvim",
 		lazy = true,
 		event = "VeryLazy",
