@@ -39,7 +39,7 @@ return {
 		})
 		require("lspconfig").clangd.setup({
 			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "mq5" },
-			init_options = { compilationDatabasePath = "./build" }
+			-- init_options = { compilationDatabasePath = "./.build" }
 		})
 		require("lspconfig").cmake.setup({
 		})
@@ -82,6 +82,12 @@ return {
 		-- 	capabilities = capabilities,
 		-- 	filetypes = { "svd", "xml" }
 		-- })
+		require("lspconfig").jedi_language_server.setup({
+			capabilities = capabilities
+		})
+		require("lspconfig").pyright.setup({
+			capabilities = capabilities
+		})
 
 		local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 		for type, icon in pairs(signs) do
