@@ -50,13 +50,13 @@ return {
 		-- Tmux Navigator
 		'christoomey/vim-tmux-navigator',
 		event = "VeryLazy",
-		keys = {
-			{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>",     "n" },
-			{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>",     "n" },
-			{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>",       "n" },
-			{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>",    "n" },
-			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>", "n" },
-		},
+		-- keys = {
+		-- 	{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>",     "n" },
+		-- 	{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>",     "n" },
+		-- 	{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>",       "n" },
+		-- 	{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>",    "n" },
+		-- 	{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>", "n" },
+		-- },
 	},
 	{
 		-- Plenary
