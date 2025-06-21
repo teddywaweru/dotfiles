@@ -2,13 +2,15 @@
 
 set -e
 
+#TODO: config checks for "connected" label for the screens
+
 HDMI=HDMI-1
 DP_1=DP-1
 DP_2=DP-2
 
 primary=eDP-1
 
-check_available_displays() {
+set_available_displays() {
 
 	external_monitors=()
 
@@ -19,7 +21,7 @@ check_available_displays() {
 		external_monitors+=$DP_1
 	fi
 	if ! xrandr | grep -q "$DP_2 disconnected"; then
-		external_monitors+=$DP_2
+		external_monitors+=$DP_2 
 	fi
 
 	if [ ${#external_monitors[@]} -eq 0 ]; then
@@ -84,7 +86,7 @@ set_scaling() {
 
 }
 
-check_available_displays
+set_available_displays
 
 # if ! xrandr | grep -q "$HDMI disconnected"; then
 # 	line=$(xrandr | grep -q "$HDMI" -n | cut -d : -f 1)
