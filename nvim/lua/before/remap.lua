@@ -35,10 +35,8 @@ vim.keymap.set("n", "<leader>e", "<cmd>e %:h<CR>", { desc = "Open Current Buffer
 
 -- Organization
 vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = "Close all other buffers?" })
-vim.keymap.set("n", "<leader>bd", ":bp|bd#<CR>", { desc = "Close current buffer and navigate to previoius" })
+vim.keymap.set("n", "<leader>bd", ":bp|bd#<CR>", { desc = "Close current buffer and navigate to previous" })
 vim.keymap.set("n", "<leader>W", "<cmd>wall<CR>", { desc = "Save all files changes" })
-
--- vim.keymap.set("t", "<C-k>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
 
 --     -- QuickFix Menu
 vim.keymap.set("n", "<leader>fqo", "<cmd>copen<CR>", { desc = "Open the QuickFix List" })

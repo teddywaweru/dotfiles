@@ -49,7 +49,14 @@ return {
 	{
 		-- Tmux Navigator
 		'christoomey/vim-tmux-navigator',
-		event = "VeryLazy"
+		event = "VeryLazy",
+		keys = {
+			{ "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>",     "n" },
+			{ "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>",     "n" },
+			{ "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>",       "n" },
+			{ "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>",    "n" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>", "n" },
+		},
 	},
 	{
 		-- Plenary
@@ -228,7 +235,7 @@ return {
 			require("toggleterm").setup({
 				-- open_mapping = false,
 				-- insert_mapping = false,
-				-- terminal_mapping = false,
+				terminal_mapping = true,
 				autochdir = true,
 				direction = "float",
 				float_opts = {
@@ -240,9 +247,11 @@ return {
 			})
 		end,
 		opts = function()
+			vim.keymap.set("t", "<C-h>", "<cmd>ToggleTerm<CR>",{ desc = "Toggle Floating terminal" })
+			vim.keymap.set("t", "<C-j>", "<cmd>ToggleTerm<CR>",{ desc = "Toggle Floating terminal" })
 			vim.keymap.set("t", "<C-k>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Floating terminal" })
+			vim.keymap.set("t", "<C-l>", "<cmd>ToggleTerm<CR>",{ desc = "Toggle Floating terminal" })
 		end
-
 	},
 	{
 		"mbbill/undotree",

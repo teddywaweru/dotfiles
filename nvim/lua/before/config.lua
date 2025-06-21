@@ -9,7 +9,7 @@ vim.wo.foldmethod = "indent"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.opt.termguicolors = true
-vim.o.timeoutlen = 200
+vim.opt.timeoutlen = 200
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.updatetime = 100
 vim.opt.tabstop = 4
@@ -31,6 +31,7 @@ vim.opt.more = true
 vim.opt.hidden = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+-- vim.opt.autochdir = true
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	group = vim.api.nvim_create_augroup('highlight_yank', {}),
