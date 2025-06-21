@@ -93,7 +93,13 @@ exec --no-startup-id powertop --auto-tune
 
 ########################################################
 # Add starting terminal
-exec --no-startup-id alacritty   
+exec --no-startup-id alacritty
+# exec --no-startup-id i3-msg "exec alacritty --command tmux"  
+# exec --no-startup-id i3-msg "exec alacritty --command tmux a"  
+
+# Add terminal to Scratchpad at startup
+exec --no-startup-id i3-msg "exec alacritty --title 'scratchpad_terminal' --command tmux"  
+for_window [title="scratchpad_terminal"] move scratchpad
 
 # move the currently focused window to the scratchpad
 bindsym $mod+$mod_2+i move scratchpad
