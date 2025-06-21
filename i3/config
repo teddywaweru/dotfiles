@@ -16,6 +16,7 @@ hide_edge_borders none
 # font xft:URWGothic-Book:style=Regular:pixelsize=17:antialias=true;3
 font pango:CodeNewRoman 8
 
+########################################################
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -81,10 +82,16 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# Add terminal to Scratchpad at startup
-exec --no-startup-id i3-msg "exec alacritty --title 'scratchpad_terminal'"  
-for_window [title="scratchpad_terminal"] move scratchpad
+########################################################
 
+# Autostart applications
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id dunst
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id zsh -b
+exec --no-startup-id powertop --auto-tune
+
+########################################################
 # Add starting terminal
 exec --no-startup-id alacritty   
 
@@ -94,6 +101,8 @@ bindsym $mod+$mod_2+i move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+i scratchpad show
+
+########################################################
 
 #navigate workspaces next / previous
 bindsym $mod+$mod_2+l workspace next
@@ -149,6 +158,8 @@ bindsym Return mode "default"
 bindsym Escape mode "default"
 }
 
+########################################################
+
 # Open applications on specific workspaces
 assign [class="Vivaldi-stable"] $ws3
 
@@ -165,6 +176,9 @@ for_window [class="Gui"] move container to workspace $ws10
 for_window [urgent=latest] focus
 for_window [class="^.*"] border pixel 1
 for_window [all] title_window_icon on
+
+########################################################
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -215,20 +229,15 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+########################################################
 
-# Autostart applications
-exec --no-startup-id clipit
-exec --no-startup-id xautolock -time 10 -locker blurlock
-exec --no-startup-id dunst
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id zsh -b
-exec --no-startup-id powertop --auto-tune
-
+########################################################
 # Set the keyboard continual key press rate & speed
 exec_always --no-startup-id xset r rate 200 60
 # Configure for display monitor
 exec_always --no-startup-id $HOME/.config/.scripts/startup.sh
 
+########################################################
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -261,6 +270,7 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
+########################################################
 
 # bar {
 # 	output HDMI-1
