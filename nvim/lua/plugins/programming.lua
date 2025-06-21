@@ -77,11 +77,13 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		-- Complete Lua runtime API 
 		"hrsh7th/cmp-nvim-lua",
 		lazy = true,
 		event = "VeryLazy",
 	},
 	{
+		-- Highlight function signature variable
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		lazy = true,
 		event = "VeryLazy",
@@ -96,12 +98,14 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		-- Completion of filesystem paths
 		"hrsh7th/cmp-path",
 		lazy = true,
 		event = "VeryLazy",
 
 	},
 	{
+		-- Suggesting words in the buffer
 		"hrsh7th/cmp-buffer",
 		lazy = true,
 		event = "VeryLazy",
@@ -212,7 +216,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		lazy = true,
 		event = "VeryLazy",
-		config = function ()
+		config = function()
 			require("nvim-dap-virtual-text").setup()
 		end
 	},
