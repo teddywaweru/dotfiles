@@ -78,6 +78,7 @@ alias c='clear'
 alias vf="vifm"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.config/.dotfiles --work-tree=$HOME/.config"
 alias la="ls -alh"
+alias e="exit"
 
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
