@@ -1,18 +1,6 @@
 return {
-
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		--priority = 1000,
-		lazy = true,
-		event = "VeryLazy",
-		config = function()
-			require("catppuccin").setup {
-				flavour = "mocha"
-			}
-		end
-	},
-	{
+		-- Pop-up ie. replace word in file
 		"stevearc/dressing.nvim",
 		config = function()
 			require("dressing").setup({
@@ -91,5 +79,17 @@ return {
 		lazy = true,
 		event = "VeryLazy",
 
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		-- priority = 1000,
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("catppuccin").setup {
+				flavour = "mocha"
+			}
+		end
 	}
 }
