@@ -77,7 +77,7 @@ return {
 		event = "VeryLazy",
 	},
 	{
-		-- Complete Lua runtime API 
+		-- Complete Lua runtime API
 		"hrsh7th/cmp-nvim-lua",
 		lazy = true,
 		event = "VeryLazy",
@@ -220,6 +220,22 @@ return {
 			require("nvim-dap-virtual-text").setup()
 		end
 	},
+	-- {
+	-- 	"cordx56/rustowl",
+	-- 	version = "*",
+	-- 	build = "cargo binstall rustowl",
+	-- 	lazy = true,
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		client = {
+	-- 			on_attach = function(_,buffer)
+	-- 				vim.keymap.set('n', '<leader>o', function()
+	-- 					require('rustowl').toggle(buffer)
+	-- 				end, { buffer = buffer, desc = "Toggle RustOwl" })
+	-- 			end
+	-- 		}
+	-- 	}
+	-- },
 	{
 		"simrat39/rust-tools.nvim",
 		lazy = true,
