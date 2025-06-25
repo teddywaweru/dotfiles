@@ -50,6 +50,7 @@ return {
 		-- Tmux Navigator
 		'christoomey/vim-tmux-navigator',
 		event = "VeryLazy",
+		name = "vim-tmux-navigator",
 		keys = {
 			-- { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>",     "n" },
 			-- { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>",     "n" },
@@ -226,6 +227,7 @@ return {
 		"akinsho/toggleterm.nvim",
 		lazy = true,
 		event = "VeryLazy",
+		dependencies = {"vim-tmux-navigator"},
 		keys = {
 			{
 				"<leader>t", "<cmd>ToggleTerm<CR>", "n", desc = "Toggle Floating terminal"
